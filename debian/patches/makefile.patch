@@ -2,14 +2,13 @@ Patch is applied because autotools are not used by upstream author. Patch settin
 
 Index: zita-convolver/libs/Makefile
 ===================================================================
---- zita-convolver.orig/libs/Makefile	2009-12-07 20:18:12.000000000 +0100
-+++ zita-convolver/libs/Makefile	2009-12-07 20:20:07.000000000 +0100
-@@ -17,9 +17,10 @@
+--- zita-convolver.orig/libs/Makefile	2009-12-15 23:30:27.000000000 +0100
++++ zita-convolver/libs/Makefile	2009-12-15 23:34:13.000000000 +0100
+@@ -17,9 +17,9 @@
  
  # Modify as required.
  #
 -PREFIX = /usr/local
-+DESTDIR=
 +PREFIX = /usr
  SUFFIX := $(shell uname -m | sed -e 's/^unknown/$//' -e 's/^i.86/$//' -e 's/^x86_64/$/64/')
 -LIBDIR = lib$(SUFFIX)
@@ -17,18 +16,18 @@ Index: zita-convolver/libs/Makefile
  
  
  MAJVERS = 2
-@@ -29,8 +30,8 @@
+@@ -29,8 +29,8 @@
  
  
  CPPFLAGS += -Wall -I. -fPIC -D_REENTRANT -D_POSIX_PTHREAD_SEMANTICS -O3
 -CPPFLAGS += -mmmx -msse -mfpmath=sse -ffast-math -funroll-loops -fpermissive
 -CPPFLAGS += -march=i686
 +CPPFLAGS += -ffast-math -funroll-loops
-+#CPPFLAGS += -march=native
++#CPPFLAGS += -march=i686
  #CPPFLAGS += -DVECTORIZE 
  
  LDLFAGS += 
-@@ -50,12 +51,12 @@
+@@ -50,12 +50,12 @@
  
  
  install:	$(ZITA-CONVOLVER_MIN)
