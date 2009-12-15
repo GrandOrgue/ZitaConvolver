@@ -1,0 +1,42 @@
+zita-convolver (2.0.0-3) UNRELEASED; urgency=low
+
+  [ Jaromír Mikeš ]
+  * Removed CPPFLAGS += -march=native from makefile by quilt (Closes: ##559747)
+
+  [ Alessio Treglia ]
+  * Switch to debhelper 7.
+  * Add ${misc:Depends} macro to libzita-convolver-dev's Depends field.
+
+ -- Alessio Treglia <quadrispro@ubuntu.com>  Sat, 12 Dec 2009 02:55:07 +0100
+
+zita-convolver (2.0.0-2) unstable; urgency=low
+
+  * Fix FTBFS on various architectures (Closes: #559516)
+  * Added fields Vcs-Git, Vcs-Browser and Homepage to control file
+  * Changed reference /usr/share/common-licenses/GPL to /GPL-2 in copyright file
+
+ -- Jaromír Mikeš <mira.mikes@seznam.cz>  Sat, 05 Dec 2009 05:24:49 +0100
+
+zita-convolver (2.0.0-1) unstable; urgency=low
+
+  * new upstream release
+
+ -- Jaromír Mikeš <mira.mikes@seznam.cz>  Wed, 02 Dec 2009 00:37:49 +0100
+
+zita-convolver (1.0.0-2) unstable; urgency=low
+
+  [ Reinhard Tartler ]
+  * use multiline fields in debian/control
+  * drop build-dependency on libc6-dev (Closes: #530974)
+
+  [ Free Ekanayaka ]
+  * Use binary-arch instead of binary-indep (Closes: #529160)
+
+ -- Free Ekanayaka <freee@debian.org>  Sun, 21 Jun 2009 12:34:20 +0200
+
+zita-convolver (1.0.0-1) unstable; urgency=low
+
+  * Initial release (Closes: #520079)
+
+ -- Jaromír Mikeš <mira.mikes@seznam.cz>  Tue, 17 Mar 2009 03:45:23 +0100
+
