@@ -3,7 +3,8 @@ Section: sound
 Priority: optional
 Maintainer: Debian Multimedia Maintainers <pkg-multimedia-maintainers@lists.alioth.debian.org>
 Uploaders: Free Ekanayaka <freee@debian.org>,
-           Jaromír Mikeš <mira.mikes@seznam.cz>
+           Jaromír Mikeš <mira.mikes@seznam.cz>,
+           Alessio Treglia <quadrispro@ubuntu.com>
 Build-Depends: debhelper (>= 7.0.50),
                binutils,
                libfftw3-dev (>= 3.1.2-3.1),
