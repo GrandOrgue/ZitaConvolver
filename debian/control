@@ -3,12 +3,12 @@ Section: sound
 Priority: optional
 Maintainer: Debian Multimedia Maintainers <pkg-multimedia-maintainers@lists.alioth.debian.org>
 Uploaders: Free Ekanayaka <freee@debian.org>,
-           Jaromír Mikeš <mira.mikes@seznam.cz>,
-           Alessio Treglia <quadrispro@ubuntu.com>
+ Jaromír Mikeš <mira.mikes@seznam.cz>,
+ Alessio Treglia <quadrispro@ubuntu.com>
 Build-Depends: debhelper (>= 7.0.50),
-               binutils,
-               libfftw3-dev (>= 3.1.2-3.1),
-               quilt (>= 0.46-7)
+ binutils,
+ libfftw3-dev (>= 3.1.2-3.1),
+ quilt (>= 0.46-7)
 DM-Upload-Allowed: yes
 Standards-Version: 3.8.3
 Vcs-Git: git://git.debian.org/git/pkg-multimedia/zita-convolver2.git
@@ -19,7 +19,7 @@ Package: libzita-convolver-dev
 Section: libdevel
 Architecture: any
 Depends: libzita-convolver2 (= ${binary:Version}),
-         ${misc:Depends}
+ ${misc:Depends}
 Description: Development files (headers) for libzita-convolver library
  Zita convolver is a C++ library implementing a real-time
  convolution matrix for up to 64 inputs and outputs. It
@@ -33,7 +33,7 @@ Package: libzita-convolver2
 Section: libs
 Architecture: any
 Depends: ${shlibs:Depends},
-         ${misc:Depends}
+ ${misc:Depends}
 Description: Zita convolver is a C++ library implementing a real-time convolution matrix
  Zita convolver is a C++ library implementing a real-time
  convolution matrix for up to 64 inputs and outputs. It
