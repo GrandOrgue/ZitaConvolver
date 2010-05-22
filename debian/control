@@ -12,7 +12,7 @@ Build-Depends: debhelper (>= 7.0.50),
 DM-Upload-Allowed: yes
 Standards-Version: 3.8.4
 Vcs-Git: git://git.debian.org/git/pkg-multimedia/zita-convolver2.git
-Vcs-Browser: http://git.debian.org/?p=pkg-multimedia/zita-convolver2.git;a=summary
+Vcs-Browser: http://git.debian.org/?p=pkg-multimedia/zita-convolver2.git
 Homepage: http://www.kokkinizita.net/linuxaudio/downloads/index.html
 
 Package: libzita-convolver-dev
