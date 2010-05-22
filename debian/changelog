@@ -1,13 +1,13 @@
 zita-convolver (2.0.0-3) UNRELEASED; urgency=low
 
   [ Jaromír Mikeš ]
-  * Removed CPPFLAGS += -march=native from makefile by quilt (Closes: ##559747)
+  * libzita-convolver-dev depends on libfftw3-dev (Closes: ##577527)
 
   [ Alessio Treglia ]
   * Switch to debhelper 7.
   * Add ${misc:Depends} macro to libzita-convolver-dev's Depends field.
 
- -- Alessio Treglia <quadrispro@ubuntu.com>  Sat, 12 Dec 2009 02:55:07 +0100
+ -- Jaromír Mikeš <mira.mikes@seznam.cz>  Sat, 22 May 2010 13:41:12 +0200
 
 zita-convolver (2.0.0-2.1) unstable; urgency=low
 
