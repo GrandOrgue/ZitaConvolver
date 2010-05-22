@@ -19,7 +19,8 @@ Package: libzita-convolver-dev
 Section: libdevel
 Architecture: any
 Depends: libzita-convolver2 (= ${binary:Version}),
- ${misc:Depends}
+ ${misc:Depends},
+ libfftw3-dev (>= 3.1.2-3.1)
 Description: Development files (headers) for libzita-convolver library
  Zita convolver is a C++ library implementing a real-time
  convolution matrix for up to 64 inputs and outputs. It
