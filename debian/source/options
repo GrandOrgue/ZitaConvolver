@@ -1,0 +1,2 @@
+# avoid patch the tree again at buildtime
+no-preparation
