@@ -6,8 +6,8 @@ Forwarded: no
  libs/Makefile |   20 ++++++++++----------
  1 file changed, 10 insertions(+), 10 deletions(-)
 
---- zita-convolver2.orig/libs/Makefile
-+++ zita-convolver2/libs/Makefile
+--- zita-convolver.orig/libs/Makefile
++++ zita-convolver/libs/Makefile
 @@ -17,9 +17,9 @@
  
  # Modify as required.
