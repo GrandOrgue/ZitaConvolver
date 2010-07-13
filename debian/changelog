@@ -1,4 +1,4 @@
-zita-convolver (2.0.0-3) UNRELEASED; urgency=low
+zita-convolver (2.0.0really2.0.0-1) unstable; urgency=low
 
   [ Jaromír Mikeš ]
   * libzita-convolver-dev depends on libfftw3-dev (Closes: ##577527)
@@ -6,8 +6,14 @@ zita-convolver (2.0.0-3) UNRELEASED; urgency=low
   [ Alessio Treglia ]
   * Switch to debhelper 7.
   * Add ${misc:Depends} macro to libzita-convolver-dev's Depends field.
+  * Bump Standards.
+  * Add myself as Uploader.
+  * Switch to format 3.0 (quilt).
+  * Add git-buildpackage config file.
+  * Add git ignore file.
+  * Add DEP-3-style tags to makefile.patch patch.
 
- -- Jaromír Mikeš <mira.mikes@seznam.cz>  Sat, 22 May 2010 13:41:12 +0200
+ -- Alessio Treglia <alessio@debian.org>  Wed, 14 Jul 2010 00:47:52 +0200
 
 zita-convolver (2.0.0-2.1) unstable; urgency=low
 
