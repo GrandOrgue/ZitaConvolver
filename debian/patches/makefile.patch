@@ -1,4 +1,7 @@
-Patch is applied because autotools are not used by upstream author. Patch setting prefix=/usr and fix install commands.
+Patch is applied because autotools are not used by upstream author.
+Patch setting prefix=/usr and fix install commands.
+Author: Jaromír Mikeš <mira.mikes@seznam.cz>
+Forwarded: no
 
 Index: zita-convolver/libs/Makefile
 ===================================================================
