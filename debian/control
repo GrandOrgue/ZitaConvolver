@@ -3,14 +3,14 @@ Section: sound
 Priority: optional
 Maintainer: Debian Multimedia Maintainers <pkg-multimedia-maintainers@lists.alioth.debian.org>
 Uploaders: Free Ekanayaka <freee@debian.org>,
- Jaromír Mikeš <mira.mikes@seznam.cz>,
- Alessio Treglia <quadrispro@ubuntu.com>
+ Alessio Treglia <quadrispro@ubuntu.com>,
+ Jaromír Mikeš <mira.mikes@seznam.cz>
 Build-Depends: debhelper (>= 7.0.50~),
  quilt (>= 0.46-7~),
  binutils,
  libfftw3-dev (>= 3.1.2-3.1)
 DM-Upload-Allowed: yes
-Standards-Version: 3.8.4
+Standards-Version: 3.9.0
 Vcs-Git: git://git.debian.org/git/pkg-multimedia/zita-convolver2.git
 Vcs-Browser: http://git.debian.org/?p=pkg-multimedia/zita-convolver2.git
 Homepage: http://www.kokkinizita.net/linuxaudio/downloads/index.html
