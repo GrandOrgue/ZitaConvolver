@@ -4,6 +4,7 @@ zita-convolver (2.0.0really2.0.0-1) unstable; urgency=low
   * libzita-convolver-dev depends on libfftw3-dev (Closes: #577527)
 
   [ Alessio Treglia ]
+  * ACK NMU.
   * Switch to debhelper 7.
   * Add ${misc:Depends} macro to libzita-convolver-dev's Depends field.
   * Bump Standards.
