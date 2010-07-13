@@ -6,7 +6,6 @@ Uploaders: Free Ekanayaka <freee@debian.org>,
  Alessio Treglia <quadrispro@ubuntu.com>,
  Jaromír Mikeš <mira.mikes@seznam.cz>
 Build-Depends: debhelper (>= 7.0.50~),
- quilt (>= 0.46-7~),
  binutils,
  libfftw3-dev (>= 3.1.2-3.1)
 DM-Upload-Allowed: yes
