@@ -1,12 +1,13 @@
-Patch is applied because autotools are not used by upstream author.
-Patch setting prefix=/usr and fix install commands.
+Description: Patch is applied because autotools are not used by upstream.
+ Patch setting prefix=/usr and fix install commands.
 Author: Jaromír Mikeš <mira.mikes@seznam.cz>
 Forwarded: no
+---
+ libs/Makefile |   20 ++++++++++----------
+ 1 file changed, 10 insertions(+), 10 deletions(-)
 
-Index: zita-convolver/libs/Makefile
-===================================================================
---- zita-convolver.orig/libs/Makefile	2009-12-15 23:30:27.000000000 +0100
-+++ zita-convolver/libs/Makefile	2009-12-15 23:34:13.000000000 +0100
+--- zita-convolver2.orig/libs/Makefile
++++ zita-convolver2/libs/Makefile
 @@ -17,9 +17,9 @@
  
  # Modify as required.
@@ -19,7 +20,7 @@ Index: zita-convolver/libs/Makefile
  
  
  MAJVERS = 2
-@@ -29,8 +29,8 @@
+@@ -29,8 +29,8 @@ DISTDIR = zita-convolver-$(VERSION)
  
  
  CPPFLAGS += -Wall -I. -fPIC -D_REENTRANT -D_POSIX_PTHREAD_SEMANTICS -O3
@@ -30,7 +31,7 @@ Index: zita-convolver/libs/Makefile
  #CPPFLAGS += -DVECTORIZE 
  
  LDLFAGS += 
-@@ -50,12 +50,12 @@
+@@ -50,12 +50,12 @@ $(ZITA-CONVOLVER_MIN):	$(ZITA-CONVOLVER_
  
  
  install:	$(ZITA-CONVOLVER_MIN)
