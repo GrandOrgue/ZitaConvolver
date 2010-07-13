@@ -9,7 +9,6 @@ override_dh_auto_build:
 override_dh_auto_clean:
 	dh_auto_clean
 	$(MAKE) -C libs/ clean
-#	test ! -d .git || dh_quilt_unpatch
 
 override_dh_auto_install:
 	$(MAKE) -C libs/  DESTDIR=$(CURDIR)/debian/tmp install
