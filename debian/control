@@ -17,7 +17,7 @@ Homepage: http://www.kokkinizita.net/linuxaudio/downloads/index.html
 Package: libzita-convolver-dev
 Section: libdevel
 Architecture: any
-Depends: libzita-convolver2 (= ${binary:Version}),
+Depends: libzita-convolver3 (= ${binary:Version}),
  ${misc:Depends},
  libfftw3-dev (>= 3.1.2-3.1)
 Description: Development files (headers) for libzita-convolver library
@@ -29,7 +29,7 @@ Description: Development files (headers) for libzita-convolver library
  This package contains the headers used to build applications
  that use libzita-convolver.
 
-Package: libzita-convolver2
+Package: libzita-convolver3
 Section: libs
 Architecture: any
 Depends: ${shlibs:Depends},
