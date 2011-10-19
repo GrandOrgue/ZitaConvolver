@@ -18,6 +18,11 @@
 # ------------------------------------------------------------------------
 
 
+# -----------------------------------------
+# This is untested, it may or may not work.
+# -----------------------------------------
+
+
 # Modify as required.
 #
 PREFIX = /usr/local
@@ -30,7 +35,7 @@ MINVERS = 0.2
 VERSION = $(MAJVERS).$(MINVERS)
 
 
-CPPFLAGS += -Wall -I. -fPIC -D_REENTRANT -D_POSIX_PTHREAD_SEMANTICS -O3
+CPPFLAGS += -Wall -I. -dynamic -D_REENTRANT -D_POSIX_PTHREAD_SEMANTICS -O3
 CPPFLAGS += -ffast-math -funroll-loops 
 CPPFLAGS += -march=native
 CPPFLAGS += -DENABLE_VECTOR_MODE 
@@ -38,25 +43,28 @@ CPPFLAGS += -DENABLE_VECTOR_MODE
 LDLFAGS += 
 LDLIBS +=
 
-
-ZITA-CONVOLVER_SO = libzita-convolver.so
-ZITA-CONVOLVER_MAJ = $(ZITA-CONVOLVER_SO).$(MAJVERS)
-ZITA-CONVOLVER_MIN = $(ZITA-CONVOLVER_MAJ).$(MINVERS)
+ZITA-CONVOLVER_L = libzita-convolver
+ZITA-CONVOLVER_SO = $(ZITA-CONVOLVER_L).dylib
+ZITA-CONVOLVER_MAJ = $(ZITA-CONVOLVER_L).$(MAJVERS).dylib
+ZITA-CONVOLVER_MIN = $(ZITA-CONVOLVER_L).$(MAJVERS).$(MINVERS).dylib
 ZITA-CONVOLVER_DEP = -lfftw3f -lpthread
 ZITA-CONVOLVER_O = zita-convolver.o
 ZITA-CONVOLVER_H = zita-convolver.h 
 
 
 $(ZITA-CONVOLVER_MIN):	$(ZITA-CONVOLVER_O)
-	g++ -shared $(LDFLAGS) -Wl,-soname,$(ZITA-CONVOLVER_MAJ) -o $(ZITA-CONVOLVER_MIN) $(ZITA-CONVOLVER_O) $(ZITA-CONVOLVER_DEP)
-
+	g++ -dynamiclib -flat_namespace \
+	    -current_version $(MAJVERS).$(MINVERS) \
+	    -compatibility_version $(MAJVERS) \
+	    -o $(ZITA-CONVOLVER_MIN) $(ZITA-CONVOLVER_O) $(ZITA-CONVOLVER_DEP) $(LDFLAGS)
 
 install:	$(ZITA-CONVOLVER_MIN)
 	install -d $(DESTDIR)$(PREFIX)/include
 	install -d $(DESTDIR)$(PREFIX)/$(LIBDIR)
 	install -m 644 $(ZITA-CONVOLVER_H) $(DESTDIR)$(PREFIX)/include
 	install -m 755 $(ZITA-CONVOLVER_MIN) $(DESTDIR)$(PREFIX)/$(LIBDIR)
-	ldconfig
+	ln -sf  $(ZITA-CONVOLVER_MIN) $(PREFIX)/$(LIBDIR)/$(ZITA-CONVOLVER_MAJ)
+	ln -sf  $(ZITA-CONVOLVER_MIN) $(PREFIX)/$(LIBDIR)/$(ZITA-CONVOLVER_SO)
 
 clean:
 	/bin/rm -f *~ *.o *.a *.d *.so.*
