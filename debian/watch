@@ -1,3 +1,4 @@
 version=3
-http://www.kokkinizita.net/linuxaudio/downloads/index.html \
+
+http://kokkinizita.linuxaudio.org/linuxaudio/downloads/index.html \
 	zita-convolver-(.*)\.tar\.bz2
