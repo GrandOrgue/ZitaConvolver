@@ -23,7 +23,6 @@ libzita-convolver.so.3 libzita-convolver3 #MINVER#
  (c++)"Convlevel::findmacnode(unsigned int, unsigned int, bool)@Base" 3.0.2
  (c++)"Convlevel::static_main(void*)@Base" 3.0.2
  (c++)"Convlevel::impdata_copy(unsigned int, unsigned int, unsigned int, unsigned int)@Base" 3.0.2
- (c++)"Convlevel::alloc_aligned(unsigned int)@Base" 3.0.2
  (c++)"Convlevel::impdata_create(unsigned int, unsigned int, unsigned int, float*, int, int)@Base" 3.0.2
  (c++)"Convlevel::impdata_update(unsigned int, unsigned int, unsigned int, float*, int, int)@Base" 3.0.2
  (c++)"Convlevel::main()@Base" 3.0.2
@@ -41,3 +40,5 @@ libzita-convolver.so.3 libzita-convolver3 #MINVER#
  (c++)"Convlevel::~Convlevel()@Base" 3.0.2
  (c++)"typeinfo for Converror@Base" 3.0.2
  (c++)"typeinfo name for Converror@Base" 3.0.2
+(arch=alpha amd64 ia64 kfreebsd-amd64)#include "libzita-convolver3.symbols.64bit"
+(arch=!alpha !amd64 !ia64 !kfreebsd-amd64)#include "libzita-convolver3.symbols.32bit"
