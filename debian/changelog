@@ -1,8 +1,25 @@
-zita-convolver (3.0.2-1) UNRELEASED; urgency=low
+zita-convolver (3.0.2-1) experimental; urgency=low
 
-  * new upstream release
+  [ Jaromír Mikeš ]
+  * New upstream release.
+  * Soname bump.
+  * Refreshed patch.
+  * Added slash to gitignore file.
+  * Bump Standards
+  * Updated symbols files.
+  * Added README file as upstream changelog.
+  * Updated URL in watch file.
+  * Added local-options file.
+  * Copyright switched to rev. 174.
+  * Little fix in copyright file.
 
- -- Jaromír Mikeš <mira.mikes@seznam.cz>  Thu, 20 Oct 2011 00:00:42 +0200
+  [ Alessio Treglia ]
+  * Use c++filt to demangle symbols.
+  * debian/patches/makefile.patch: Add kfreebsd,hurd buildds support.
+  * Introduce multiarch support.
+  * Packaging clean-up.
+
+ -- Jaromír Mikeš <mira.mikes@seznam.cz>  Sat, 22 Oct 2011 11:10:27 +0200
 
 zita-convolver (2.0.0really2.0.0-1) unstable; urgency=low
 
