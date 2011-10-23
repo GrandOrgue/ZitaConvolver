@@ -40,5 +40,5 @@ libzita-convolver.so.3 libzita-convolver3 #MINVER#
  (c++)"Convlevel::~Convlevel()@Base" 3.0.2
  (c++)"typeinfo for Converror@Base" 3.0.2
  (c++)"typeinfo name for Converror@Base" 3.0.2
-(arch=alpha amd64 ia64 kfreebsd-amd64)#include "libzita-convolver3.symbols.64bit"
-(arch=!alpha !amd64 !ia64 !kfreebsd-amd64)#include "libzita-convolver3.symbols.32bit"
+(arch=alpha amd64 ia64 kfreebsd-amd64 s390)#include "libzita-convolver3.symbols.64bit"
+(arch=!alpha !amd64 !ia64 !kfreebsd-amd64 !s390)#include "libzita-convolver3.symbols.32bit"
