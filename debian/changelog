@@ -1,3 +1,9 @@
+zita-convolver (3.0.2-2) experimental; urgency=low
+
+  * Fix FTBFS on s390.
+
+ -- Alessio Treglia <alessio@debian.org>  Tue, 25 Oct 2011 10:52:10 +0200
+
 zita-convolver (3.0.2-1) experimental; urgency=low
 
   [ Jaromír Mikeš ]
