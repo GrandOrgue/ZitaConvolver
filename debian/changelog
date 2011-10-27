@@ -1,3 +1,9 @@
+zita-convolver (3.0.3-1) UNRELEASED; urgency=low
+
+  * New upstream release.
+
+ -- Jaromír Mikeš <mira.mikes@seznam.cz>  Fri, 28 Oct 2011 00:06:38 +0200
+
 zita-convolver (3.0.2-2) experimental; urgency=low
 
   * Fix FTBFS on s390.
