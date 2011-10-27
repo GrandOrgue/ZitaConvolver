@@ -8,8 +8,8 @@ Forwarded: no
 
 Index: zita-convolver/libs/Makefile
 ===================================================================
---- zita-convolver.orig/libs/Makefile	2011-10-28 00:23:18.000000000 +0200
-+++ zita-convolver/libs/Makefile	2011-10-28 00:26:16.039303920 +0200
+--- zita-convolver.orig/libs/Makefile	2011-10-28 00:26:40.000000000 +0200
++++ zita-convolver/libs/Makefile	2011-10-28 00:38:05.251285398 +0200
 @@ -20,9 +20,9 @@
  
  # Modify as required.
@@ -33,9 +33,11 @@ Index: zita-convolver/libs/Makefile
  
  LDLFAGS += 
  LDLIBS +=
-@@ -57,7 +55,6 @@
+@@ -56,8 +54,8 @@
+ 	install -d $(DESTDIR)$(PREFIX)/$(LIBDIR)
  	install -m 644 $(ZITA-CONVOLVER_H) $(DESTDIR)$(PREFIX)/include
  	install -m 755 $(ZITA-CONVOLVER_MIN) $(DESTDIR)$(PREFIX)/$(LIBDIR)
++	/sbin/ldconfig -n $(DESTDIR)$(PREFIX)/$(LIBDIR)
  	ln -sf $(ZITA-CONVOLVER_MIN) $(DESTDIR)$(PREFIX)/$(LIBDIR)/$(ZITA-CONVOLVER_SO)
 -	ldconfig
  
