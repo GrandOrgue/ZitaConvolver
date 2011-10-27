@@ -6,8 +6,10 @@ Forwarded: no
  libs/Makefile |   11 +++++------
  1 file changed, 5 insertions(+), 6 deletions(-)
 
---- zita-convolver.orig/libs/Makefile
-+++ zita-convolver/libs/Makefile
+Index: zita-convolver/libs/Makefile
+===================================================================
+--- zita-convolver.orig/libs/Makefile	2011-10-28 00:04:55.139337372 +0200
++++ zita-convolver/libs/Makefile	2011-10-28 00:09:39.371329949 +0200
 @@ -20,9 +20,9 @@
  
  # Modify as required.
@@ -20,7 +22,7 @@ Forwarded: no
  
  
  MAJVERS = 3
-@@ -31,9 +31,7 @@ VERSION = $(MAJVERS).$(MINVERS)
+@@ -31,9 +31,7 @@
  
  
  CPPFLAGS += -Wall -I. -fPIC -D_REENTRANT -D_POSIX_PTHREAD_SEMANTICS -O3
@@ -31,13 +33,3 @@ Forwarded: no
  
  LDLFAGS += 
  LDLIBS +=
-@@ -56,7 +54,8 @@ install:	$(ZITA-CONVOLVER_MIN)
- 	install -d $(DESTDIR)$(PREFIX)/$(LIBDIR)
- 	install -m 644 $(ZITA-CONVOLVER_H) $(DESTDIR)$(PREFIX)/include
- 	install -m 755 $(ZITA-CONVOLVER_MIN) $(DESTDIR)$(PREFIX)/$(LIBDIR)
--	ldconfig
-+	/sbin/ldconfig -n $(DESTDIR)$(PREFIX)/$(LIBDIR)
-+	ln -sf $(ZITA-CONVOLVER_MIN) $(DESTDIR)$(PREFIX)/$(LIBDIR)/$(ZITA-CONVOLVER_SO)
- 
- clean:
- 	/bin/rm -f *~ *.o *.a *.d *.so.*
