@@ -26,7 +26,7 @@ LIBDIR = lib$(SUFFIX)
 
 
 MAJVERS = 3
-MINVERS = 0.2
+MINVERS = 0.3
 VERSION = $(MAJVERS).$(MINVERS)
 
 
@@ -56,6 +56,7 @@ install:	$(ZITA-CONVOLVER_MIN)
 	install -d $(DESTDIR)$(PREFIX)/$(LIBDIR)
 	install -m 644 $(ZITA-CONVOLVER_H) $(DESTDIR)$(PREFIX)/include
 	install -m 755 $(ZITA-CONVOLVER_MIN) $(DESTDIR)$(PREFIX)/$(LIBDIR)
+	ln -sf $(ZITA-CONVOLVER_MIN) $(DESTDIR)$(PREFIX)/$(LIBDIR)/$(ZITA-CONVOLVER_SO)
 	ldconfig
 
 clean:
