@@ -1,3 +1,9 @@
+zita-convolver (3.0.3-2) unstable; urgency=low
+
+  * Upload to unstable.
+
+ -- Alessio Treglia <alessio@debian.org>  Sat, 10 Dec 2011 15:34:14 +0100
+
 zita-convolver (3.0.3-1) experimental; urgency=low
 
   * New upstream release.
