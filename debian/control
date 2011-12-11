@@ -12,7 +12,7 @@ DM-Upload-Allowed: yes
 Standards-Version: 3.9.2
 Vcs-Git: git://git.debian.org/git/pkg-multimedia/zita-convolver.git
 Vcs-Browser: http://git.debian.org/?p=pkg-multimedia/zita-convolver.git
-Homepage: http://www.kokkinizita.net/linuxaudio/downloads/index.html
+Homepage: http://kokkinizita.linuxaudio.org/linuxaudio/
 
 Package: libzita-convolver-dev
 Section: libdevel
