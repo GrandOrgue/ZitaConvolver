@@ -3,13 +3,11 @@ Description: Patch is applied because autotools are not used by upstream.
 Author: Jaromír Mikeš <mira.mikes@seznam.cz>
 Forwarded: no
 ---
- libs/Makefile |   11 +++++------
- 1 file changed, 5 insertions(+), 6 deletions(-)
+ libs/Makefile |    9 ++++-----
+ 1 file changed, 4 insertions(+), 5 deletions(-)
 
-Index: zita-convolver/libs/Makefile
-===================================================================
---- zita-convolver.orig/libs/Makefile	2011-10-28 00:26:40.000000000 +0200
-+++ zita-convolver/libs/Makefile	2011-10-28 00:38:05.251285398 +0200
+--- zita-convolver.orig/libs/Makefile
++++ zita-convolver/libs/Makefile
 @@ -20,9 +20,9 @@
  
  # Modify as required.
@@ -22,18 +20,17 @@ Index: zita-convolver/libs/Makefile
  
  
  MAJVERS = 3
-@@ -31,9 +31,7 @@
+@@ -32,8 +32,7 @@ VERSION = $(MAJVERS).$(MINVERS)
  
- 
- CPPFLAGS += -Wall -I. -fPIC -D_REENTRANT -D_POSIX_PTHREAD_SEMANTICS -O3
--CPPFLAGS += -ffast-math -funroll-loops 
--CPPFLAGS += -march=native
--CPPFLAGS += -DENABLE_VECTOR_MODE 
-+CPPFLAGS += -ffast-math -funroll-loops
- 
+ CPPFLAGS += -I. -D_REENTRANT -D_POSIX_PTHREAD_SEMANTICS -DENABLE_VECTOR_MODE 
+ CXXFLAGS += -fPIC -Wall
+-CXXFLAGS += -ffast-math -funroll-loops -O3
+-CXXFLAGS += -march=native
++CXXFLAGS += -ffast-math -funroll-loops
  LDLFAGS += 
  LDLIBS +=
-@@ -56,8 +54,8 @@
+ 
+@@ -55,8 +54,8 @@ install:	$(ZITA-CONVOLVER_MIN)
  	install -d $(DESTDIR)$(PREFIX)/$(LIBDIR)
  	install -m 644 $(ZITA-CONVOLVER_H) $(DESTDIR)$(PREFIX)/include
  	install -m 755 $(ZITA-CONVOLVER_MIN) $(DESTDIR)$(PREFIX)/$(LIBDIR)
