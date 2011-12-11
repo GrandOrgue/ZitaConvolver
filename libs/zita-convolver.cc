@@ -32,6 +32,12 @@ int zita_convolver_major_version (void)
 }
 
 
+int zita_convolver_minor_version (void)
+{
+    return ZITA_CONVOLVER_MINOR_VERSION;
+}
+
+
 float Convproc::_mac_cost = 1.0f;
 float Convproc::_fft_cost = 5.0f;
 
@@ -487,19 +493,22 @@ void Convlevel::impdata_create (unsigned int inp,
 	    {
 		M->_fftb [k] = (fftwf_complex *)(alloc_aligned ((_parsize + 1) * sizeof (fftwf_complex)));
 	    }
-	    memset (_prep_data, 0, 2 * _parsize * sizeof (float));
-	    j0 = (i0 < 0) ? 0 : i0;
-	    j1 = (i1 > n) ? n : i1;
-	    for (j = j0; j < j1; j++) _prep_data [j - i0] = norm * data [j * step];
-	    fftwf_execute_dft_r2c (_plan_r2c, _prep_data, _freq_data);
-#ifdef ENABLE_VECTOR_MODE
-	    if (_options & OPT_VECTOR_MODE) fftswap (_freq_data);
-#endif
-  	    fftb = M->_fftb [k];
-	    for (j = 0; j <= (int)_parsize; j++)
+	    if (data)
 	    {
-	        fftb [j][0] += _freq_data [j][0];
-	        fftb [j][1] += _freq_data [j][1];
+	        memset (_prep_data, 0, 2 * _parsize * sizeof (float));
+	        j0 = (i0 < 0) ? 0 : i0;
+	        j1 = (i1 > n) ? n : i1;
+	        for (j = j0; j < j1; j++) _prep_data [j - i0] = norm * data [j * step];
+	        fftwf_execute_dft_r2c (_plan_r2c, _prep_data, _freq_data);
+#ifdef ENABLE_VECTOR_MODE
+	        if (_options & OPT_VECTOR_MODE) fftswap (_freq_data);
+#endif
+  	        fftb = M->_fftb [k];
+	        for (j = 0; j <= (int)_parsize; j++)
+	        {
+	            fftb [j][0] += _freq_data [j][0];
+	            fftb [j][1] += _freq_data [j][1];
+		}
 	    }
 	}
 	i0 = i1;
