@@ -27,9 +27,11 @@
 
 
 #define ZITA_CONVOLVER_MAJOR_VERSION 3
+#define ZITA_CONVOLVER_MINOR_VERSION 1
 
 
 extern int zita_convolver_major_version (void);
+extern int zita_convolver_minor_version (void);
 
 
 // ----------------------------------------------------------------------------
@@ -39,7 +41,13 @@ extern int zita_convolver_major_version (void);
 #undef ZCSEMA_IS_IMPLEMENTED
 #endif
 
-#ifdef __linux__
+
+#if defined(__linux__) || defined(__FreeBSD_kernel__) || defined(__GNU__)
+
+// NOTE: __FreeBSD_kernel__  and __GNU__ were added by the Debian maintainers
+// (the latter for the HURD version of Debian). Things are reported to work
+// with some applications but probably have not been tested in depth.
+
 #include <semaphore.h>
 
 class ZCsema

@@ -31,15 +31,14 @@ LIBDIR = lib$(SUFFIX)
 
 
 MAJVERS = 3
-MINVERS = 0.3
+MINVERS = 1.0
 VERSION = $(MAJVERS).$(MINVERS)
 
 
-CPPFLAGS += -Wall -I. -dynamic -D_REENTRANT -D_POSIX_PTHREAD_SEMANTICS -O3
-CPPFLAGS += -ffast-math -funroll-loops 
-CPPFLAGS += -march=native
-CPPFLAGS += -DENABLE_VECTOR_MODE 
-
+CPPFLAGS += -I. -D_REENTRANT -D_POSIX_PTHREAD_SEMANTICS -DENABLE_VECTOR_MODE 
+CXXFLAGS += -dynamic -Wall
+CXXFLAGS += -ffast-math -funroll-loops -O3
+#CXXFLAGS += -march=native
 LDLFAGS += 
 LDLIBS +=
 
