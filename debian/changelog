@@ -1,3 +1,9 @@
+zita-convolver (3.1.0-1) UNRELEASED; urgency=low
+
+  * start new upload
+
+ -- Alessio Treglia <alessio@debian.org>  Mon, 12 Dec 2011 11:21:48 +0100
+
 zita-convolver (3.0.3-3) unstable; urgency=low
 
   * Update debian/libzita-convolver3.symbols to append s390x to the list
