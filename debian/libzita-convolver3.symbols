@@ -1,5 +1,6 @@
 libzita-convolver.so.3 libzita-convolver3 #MINVER#
  (c++)"zita_convolver_major_version()@Base" 3.0.2
+ (c++)"zita_convolver_minor_version()@Base" 3.1.0
  (c++)"Convproc::check_stop()@Base" 3.0.2
  (c++)"Convproc::set_density(float)@Base" 3.0.2
  (c++)"Convproc::set_options(unsigned int)@Base" 3.0.2
