@@ -3,8 +3,8 @@ Description: Patch is applied because autotools are not used by upstream.
 Author: Jaromír Mikeš <mira.mikes@seznam.cz>
 Forwarded: no
 ---
- libs/Makefile |    9 ++++-----
- 1 file changed, 4 insertions(+), 5 deletions(-)
+ libs/Makefile |   11 +++++------
+ 1 file changed, 5 insertions(+), 6 deletions(-)
 
 --- zita-convolver.orig/libs/Makefile
 +++ zita-convolver/libs/Makefile
@@ -20,9 +20,12 @@ Forwarded: no
  
  
  MAJVERS = 3
-@@ -32,8 +32,7 @@ VERSION = $(MAJVERS).$(MINVERS)
+@@ -30,10 +30,9 @@ MINVERS = 1.0
+ VERSION = $(MAJVERS).$(MINVERS)
  
- CPPFLAGS += -I. -D_REENTRANT -D_POSIX_PTHREAD_SEMANTICS -DENABLE_VECTOR_MODE 
+ 
+-CPPFLAGS += -I. -D_REENTRANT -D_POSIX_PTHREAD_SEMANTICS -DENABLE_VECTOR_MODE 
++CPPFLAGS += -I. -D_REENTRANT -D_POSIX_PTHREAD_SEMANTICS
  CXXFLAGS += -fPIC -Wall
 -CXXFLAGS += -ffast-math -funroll-loops -O3
 -CXXFLAGS += -march=native
