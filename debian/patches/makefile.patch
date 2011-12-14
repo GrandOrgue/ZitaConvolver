@@ -1,5 +1,6 @@
 Description: Patch is applied because autotools are not used by upstream.
  Patch setting prefix=/usr and fix install commands.
+ Remove compiler optimizations.
 Author: Jaromír Mikeš <mira.mikes@seznam.cz>
 Forwarded: no
 ---
