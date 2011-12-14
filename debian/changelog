@@ -1,8 +1,14 @@
-zita-convolver (3.1.0-1) UNRELEASED; urgency=low
+zita-convolver (3.1.0-1) unstable; urgency=low
 
-  * start new upload
+  * New upstream release.
+  * Remove nonlinux_support.patch, adopted upstream.
+  * Refresh makefile.patch.
+  * Update debian/copyright.
+  * Update symbols file.
+  * Shorten debian/rules.
+  * Fix Homepage field.
 
- -- Alessio Treglia <alessio@debian.org>  Mon, 12 Dec 2011 11:21:48 +0100
+ -- Alessio Treglia <alessio@debian.org>  Wed, 14 Dec 2011 10:41:40 +0100
 
 zita-convolver (3.0.3-3) unstable; urgency=low
 
