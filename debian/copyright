@@ -1,4 +1,4 @@
-Format: http://svn.debian.org/wsvn/dep/web/deps/dep5.mdwn?op=file&rev=202
+Format: http://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
 Upstream-Name: zita-convolver
 Upstream-Contact: Fons Adriaensen  <fons@linuxaudio.org>
 Source: http://kokkinizita.linuxaudio.org/linuxaudio/downloads/index.html
@@ -8,8 +8,8 @@ Copyright: 2006-2011 Fons Adriaensen  <fons@linuxaudio.org>
 License: GPL-3+
 
 Files: debian/*
-Copyright: 2009-2011 Jaromír Mikeš <mira.mikes@seznam.cz>
- 2010-2011 Alessio Treglia <alessio@debian.org>
+Copyright: 2009-2012 Jaromír Mikeš <mira.mikes@seznam.cz>
+ 2010-2012 Alessio Treglia <alessio@debian.org>
  2009 Free Ekanayaka <freee@debian.org>
 License: GPL-3+
 
