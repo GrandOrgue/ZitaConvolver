@@ -1,4 +1,4 @@
-zita-convolver (3.1.0-2) UNRELEASED; urgency=low
+zita-convolver (3.1.0-2) unstable; urgency=low
 
   * FTBFS on ppc64 (Closes: #669950)
     Thanks Hiroyuki Yamamoto
