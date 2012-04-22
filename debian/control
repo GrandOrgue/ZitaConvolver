@@ -2,11 +2,13 @@ Source: zita-convolver
 Section: sound
 Priority: optional
 Maintainer: Debian Multimedia Maintainers <pkg-multimedia-maintainers@lists.alioth.debian.org>
-Uploaders: Free Ekanayaka <freee@debian.org>,
+Uploaders:
+ Free Ekanayaka <freee@debian.org>,
  Alessio Treglia <alessio@debian.org>,
  Jaromír Mikeš <mira.mikes@seznam.cz>
-Build-Depends: debhelper (>= 8.1.3~),
+Build-Depends:
  binutils,
+ debhelper (>= 8.1.3~),
  libfftw3-dev (>= 3.1.2-3.1)
 DM-Upload-Allowed: yes
 Standards-Version: 3.9.3
@@ -17,9 +19,10 @@ Homepage: http://kokkinizita.linuxaudio.org/linuxaudio/
 Package: libzita-convolver-dev
 Section: libdevel
 Architecture: any
-Depends: libzita-convolver3 (= ${binary:Version}),
- ${misc:Depends},
- libfftw3-dev (>= 3.1.2-3.1)
+Depends:
+ libfftw3-dev (>= 3.1.2-3.1),
+ libzita-convolver3 (= ${binary:Version}),
+ ${misc:Depends}
 Multi-Arch: same
 Description: Development files (headers) for libzita-convolver library
  Zita convolver is a C++ library implementing a real-time
@@ -33,8 +36,9 @@ Description: Development files (headers) for libzita-convolver library
 Package: libzita-convolver3
 Section: libs
 Architecture: any
-Depends: ${shlibs:Depends},
- ${misc:Depends}
+Depends:
+ ${misc:Depends},
+ ${shlibs:Depends}
 Multi-Arch: same
 Pre-Depends: ${misc:Pre-Depends}
 Description: C++ library implementing a real-time convolution matrix
