@@ -1,6 +1,14 @@
-zita-convolver (3.1.0-3) UNRELEASED; urgency=low
+zita-convolver (3.1.0-3) unstable; urgency=low
 
-  * Start new upload.
+  [ Alessio Treglia ]
+  * Remove DM-Upload-Allowed field, not needed anymore.
+
+  [ Jaromír Mikeš ]
+  * Set debhelper 9.
+  * Bump Standards.
+  * Use canonical VCS-* URLs.
+  * Update symbols to support mips64. (Closes: #725805) (Closes: #726134)
+    Thanks to YunQiang Su <wzssyqa@gmail.com>
 
  -- Jaromír Mikeš <mira.mikes@seznam.cz>  Sat, 12 Oct 2013 22:59:55 +0200
 
