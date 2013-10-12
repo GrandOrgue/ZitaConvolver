@@ -1,3 +1,9 @@
+zita-convolver (3.1.0-3) UNRELEASED; urgency=low
+
+  * Start new upload.
+
+ -- Jaromír Mikeš <mira.mikes@seznam.cz>  Sat, 12 Oct 2013 22:59:55 +0200
+
 zita-convolver (3.1.0-2) unstable; urgency=low
 
   * FTBFS on ppc64 (Closes: #669950)
