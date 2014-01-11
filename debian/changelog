@@ -1,6 +1,12 @@
-zita-convolver (3.1.0-4) UNRELEASED; urgency=low
+zita-convolver (3.1.0-4) unstable; urgency=low
 
-  * Start new upload.
+  [ Alessio Treglia ]
+  * Remove myself from the Uploaders field.
+
+  [ Jaromír Mikeš ]
+  * Bump Standards.
+  * Fix symbols file to allow build on arm64 and ppc64el. (Closes: #735013)
+    Thanks to Daniel T Chen <seven.steps@gmail.com>
 
  -- Jaromír Mikeš <mira.mikes@seznam.cz>  Sat, 11 Jan 2014 22:38:21 +0100
 
