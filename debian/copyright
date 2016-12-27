@@ -8,7 +8,8 @@ Copyright: 2006-2011 Fons Adriaensen  <fons@linuxaudio.org>
 License: GPL-3+
 
 Files: debian/*
-Copyright: 2009-2012 Jaromír Mikeš <mira.mikes@seznam.cz>
+Copyright:
+ 2009-2016 Jaromír Mikeš <mira.mikes@seznam.cz>
  2010-2012 Alessio Treglia <alessio@debian.org>
  2009 Free Ekanayaka <freee@debian.org>
 License: GPL-3+
