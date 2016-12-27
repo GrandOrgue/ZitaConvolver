@@ -7,7 +7,7 @@ Uploaders:
  Jaromír Mikeš <mira.mikes@seznam.cz>
 Build-Depends:
  binutils,
- debhelper (>= 9),
+ debhelper (>= 10),
  libfftw3-dev (>= 3.1.2-3.1)
 Standards-Version: 3.9.5
 Vcs-Git: git://anonscm.debian.org/pkg-multimedia/zita-convolver.git
