@@ -7,7 +7,7 @@ Uploaders:
  Jaromír Mikeš <mira.mikes@seznam.cz>
 Build-Depends:
  debhelper (>= 10),
- libfftw3-dev (>= 3.1.2-3.1)
+ libfftw3-dev,
 Standards-Version: 4.1.0
 Vcs-Git: https://anonscm.debian.org/git/pkg-multimedia/zita-convolver.git
 Vcs-Browser: https://anonscm.debian.org/git/pkg-multimedia/zita-convolver.git
@@ -17,7 +17,7 @@ Package: libzita-convolver-dev
 Section: libdevel
 Architecture: any
 Depends:
- libfftw3-dev (>= 3.1.2-3.1),
+ libfftw3-dev,
  libzita-convolver3 (= ${binary:Version}),
  ${misc:Depends}
 Multi-Arch: same
