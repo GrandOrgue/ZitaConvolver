@@ -1,3 +1,17 @@
+zita-convolver (3.1.0-6) unstable; urgency=medium
+
+  * Team upload.
+  * Bump Standards-Version to 4.1.0:
+    + use HTTPS in debian/copyright's Format field.
+  * Drop Build-dependency on binutils.  Closes: #873161
+    binutils is already pulled in by build-essential, and specifying it
+    explicitly prevents proper resolution of cross build dependencies.
+  * Drop version restriction on fftw3, already satisfied in oldoldstable.
+  * debian/rules: include architecture.mk instead of spawning a shell to
+    get DEB_HOST_MULTIARCH.
+
+ -- Mattia Rizzolo <mattia@debian.org>  Fri, 25 Aug 2017 09:46:27 +0200
+
 zita-convolver (3.1.0-5) unstable; urgency=medium
 
   * Set dh/compat 10.
