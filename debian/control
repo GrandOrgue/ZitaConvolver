@@ -9,9 +9,9 @@ Build-Depends:
  binutils,
  debhelper (>= 10),
  libfftw3-dev (>= 3.1.2-3.1)
-Standards-Version: 3.9.8
+Standards-Version: 4.1.0
 Vcs-Git: https://anonscm.debian.org/git/pkg-multimedia/zita-convolver.git
-Vcs-Browser: https://anonscm.debian.org/cgit/pkg-multimedia/zita-convolver.git
+Vcs-Browser: https://anonscm.debian.org/git/pkg-multimedia/zita-convolver.git
 Homepage: http://kokkinizita.linuxaudio.org/linuxaudio/
 
 Package: libzita-convolver-dev
