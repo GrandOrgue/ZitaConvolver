@@ -6,7 +6,7 @@ Uploaders:
  Free Ekanayaka <freee@debian.org>,
  Jaromír Mikeš <mira.mikes@seznam.cz>
 Build-Depends:
- debhelper (>= 10),
+ debhelper (>= 11),
  libfftw3-dev,
 Standards-Version: 4.1.0
 Vcs-Git: https://anonscm.debian.org/git/pkg-multimedia/zita-convolver.git
