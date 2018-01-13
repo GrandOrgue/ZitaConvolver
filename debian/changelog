@@ -1,4 +1,4 @@
-zita-convolver (3.1.0-7) UNRELEASED; urgency=medium
+zita-convolver (3.1.0-7) unstable; urgency=medium
 
   * Modernize symbols file. (Closes: #887049)
   * Set dh/compat 11.
