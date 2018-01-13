@@ -1,7 +1,7 @@
 Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
 Upstream-Name: zita-convolver
 Upstream-Contact: Fons Adriaensen <fons@linuxaudio.org>
-Source: http://kokkinizita.linuxaudio.org/linuxaudio/downloads/index.html
+Source: https://kokkinizita.linuxaudio.org/linuxaudio/downloads/index.html
 
 Files: *
 Copyright: 2006-2011 Fons Adriaensen <fons@linuxaudio.org>
