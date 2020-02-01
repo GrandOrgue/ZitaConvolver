@@ -1,6 +1,6 @@
 # ------------------------------------------------------------------------
 #
-#  Copyright (C) 2006-2011 Fons Adriaensen <fons@linuxaudio.org>
+#  Copyright (C) 2006-2018 Fons Adriaensen <fons@linuxaudio.org>
 #
 #  This program is free software; you can redistribute it and/or modify
 #  it under the terms of the GNU General Public License as published
@@ -18,52 +18,50 @@
 # ------------------------------------------------------------------------
 
 
-# -----------------------------------------
-# This is untested, it may or may not work.
-# -----------------------------------------
-
-
 # Modify as required.
 #
-PREFIX = /usr/local
 SUFFIX := $(shell uname -m | sed -e 's/^unknown/$//' -e 's/^i.86/$//' -e 's/^x86_64/$/64/')
-LIBDIR = lib$(SUFFIX)
+PREFIX ?= /usr/local
+INCDIR ?= $(PREFIX)/include
+LIBDIR ?= $(PREFIX)/lib$(SUFFIX)
 
 
-MAJVERS = 3
-MINVERS = 1.0
+MAJVERS = 4
+MINVERS = 0.3
 VERSION = $(MAJVERS).$(MINVERS)
 
 
-CPPFLAGS += -I. -D_REENTRANT -D_POSIX_PTHREAD_SEMANTICS -DENABLE_VECTOR_MODE 
-CXXFLAGS += -dynamic -Wall
-CXXFLAGS += -ffast-math -funroll-loops -O3
-#CXXFLAGS += -march=native
+CPPFLAGS += -I. -D_REENTRANT -D_POSIX_PTHREAD_SEMANTICS
+CPPFLAGS += -DENABLE_VECTOR_MODE 
+CXXFLAGS += -fPIC -Wall -ffast-math -funroll-loops -O2
+CXXFLAGS += -march=native
 LDLFAGS += 
 LDLIBS +=
 
-ZITA-CONVOLVER_L = libzita-convolver
-ZITA-CONVOLVER_SO = $(ZITA-CONVOLVER_L).dylib
-ZITA-CONVOLVER_MAJ = $(ZITA-CONVOLVER_L).$(MAJVERS).dylib
-ZITA-CONVOLVER_MIN = $(ZITA-CONVOLVER_L).$(MAJVERS).$(MINVERS).dylib
+
+ZITA-CONVOLVER_SO = libzita-convolver.so
+ZITA-CONVOLVER_MAJ = $(ZITA-CONVOLVER_SO).$(MAJVERS)
+ZITA-CONVOLVER_MIN = $(ZITA-CONVOLVER_MAJ).$(MINVERS)
 ZITA-CONVOLVER_DEP = -lfftw3f -lpthread
 ZITA-CONVOLVER_O = zita-convolver.o
 ZITA-CONVOLVER_H = zita-convolver.h 
 
 
 $(ZITA-CONVOLVER_MIN):	$(ZITA-CONVOLVER_O)
-	g++ -dynamiclib -flat_namespace \
-	    -current_version $(MAJVERS).$(MINVERS) \
-	    -compatibility_version $(MAJVERS) \
-	    -o $(ZITA-CONVOLVER_MIN) $(ZITA-CONVOLVER_O) $(ZITA-CONVOLVER_DEP) $(LDFLAGS)
+	$(CXX) -shared $(LDFLAGS) -Wl,-soname,$(ZITA-CONVOLVER_MAJ) -o $(ZITA-CONVOLVER_MIN) $(ZITA-CONVOLVER_O) $(ZITA-CONVOLVER_DEP)
+
 
 install:	$(ZITA-CONVOLVER_MIN)
-	install -d $(DESTDIR)$(PREFIX)/include
-	install -d $(DESTDIR)$(PREFIX)/$(LIBDIR)
-	install -m 644 $(ZITA-CONVOLVER_H) $(DESTDIR)$(PREFIX)/include
-	install -m 755 $(ZITA-CONVOLVER_MIN) $(DESTDIR)$(PREFIX)/$(LIBDIR)
-	ln -sf  $(ZITA-CONVOLVER_MIN) $(PREFIX)/$(LIBDIR)/$(ZITA-CONVOLVER_MAJ)
-	ln -sf  $(ZITA-CONVOLVER_MIN) $(PREFIX)/$(LIBDIR)/$(ZITA-CONVOLVER_SO)
+	install -d $(DESTDIR)$(INCDIR)
+	install -d $(DESTDIR)$(LIBDIR)
+	install -m 644 $(ZITA-CONVOLVER_H) $(DESTDIR)$(INCDIR)
+	install -m 755 $(ZITA-CONVOLVER_MIN) $(DESTDIR)$(LIBDIR)
+	ldconfig
+	ln -sf $(ZITA-CONVOLVER_MIN) $(DESTDIR)$(LIBDIR)/$(ZITA-CONVOLVER_SO)
+
+uninstall:
+	rm -rf $(DESTDIR)$(INCDIR)/$(ZITA-CONVOLVER_H)
+	rm -rf $(DESTDIR)$(LIBDIR)/libzita-convolver*
 
 clean:
 	/bin/rm -f *~ *.o *.a *.d *.so.*
