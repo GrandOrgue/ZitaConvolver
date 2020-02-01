@@ -12,6 +12,7 @@ Standards-Version: 4.5.0
 Vcs-Git: https://salsa.debian.org/multimedia-team/zita-convolver.git
 Vcs-Browser: https://salsa.debian.org/multimedia-team/zita-convolver
 Homepage: https://kokkinizita.linuxaudio.org/linuxaudio/
+Rules-Requires-Root: no
 
 Package: libzita-convolver-dev
 Section: libdevel
