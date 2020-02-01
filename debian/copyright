@@ -4,11 +4,12 @@ Upstream-Contact: Fons Adriaensen <fons@linuxaudio.org>
 Source: https://kokkinizita.linuxaudio.org/linuxaudio/downloads/index.html
 
 Files: *
-Copyright: 2006-2011 Fons Adriaensen <fons@linuxaudio.org>
+Copyright: 2006-2018 Fons Adriaensen <fons@linuxaudio.org>
 License: GPL-3+
 
 Files: debian/*
 Copyright:
+ 2020 Dennis Braun <d_braun@kabelmail.de>
  2009-2016 Jaromír Mikeš <mira.mikes@seznam.cz>
  2010-2012 Alessio Treglia <alessio@debian.org>
  2009 Free Ekanayaka <freee@debian.org>
@@ -25,7 +26,7 @@ License: GPL-3+
  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  GNU General Public License for more details.
 Comment: You should have received a copy of the GNU General Public License
- along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ along with this program.  If not, see <https://www.gnu.org/licenses/>.
  .
  On Debian systems, the complete text of the GNU General
  Public License can be found in `/usr/share/common-licenses/GPL-3'.
