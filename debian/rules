@@ -8,7 +8,7 @@ export LIBDIR=lib/$(DEB_HOST_MULTIARCH)
 export DESTDIR=$(CURDIR)/debian/tmp
 
 %:
-	dh $@ -Smakefile -Dlibs
+	dh $@ -Smakefile -Dsource
 
 override_dh_installchangelogs:
 	dh_installchangelogs README
