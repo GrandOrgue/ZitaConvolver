@@ -1,3 +1,31 @@
+zita-convolver (4.0.3-1) UNRELEASED; urgency=medium
+
+  * Team upload
+
+  [ Felipe Sateler ]
+  * Change maintainer address to debian-multimedia@lists.debian.org
+
+  [ Ondřej Nový ]
+  * Use debhelper-compat instead of debian/compat
+  * d/control: Set Vcs-* to salsa.debian.org
+
+  [ Dennis Braun ]
+  * New upstream version 4.0.3
+  * d/control:
+    + Bump dh-compat to 12
+    + Bump Standards-Version to 4.5.0
+    + Bump SONAME
+    + Set RRR: no
+  * d/copyright: Update year, http > https & add myself
+  * d/libzita-convolver*.install: Bump SONAME
+  * d/patches: Update patch
+  * Upgrade symbols file
+  * d/rules:
+    + Add more exports to make the build work
+    + Replace libs/ with source/
+
+ -- Dennis Braun <d_braun@kabelmail.de>  Sun, 02 Feb 2020 23:57:57 +0100
+
 zita-convolver (3.1.0-7) unstable; urgency=medium
 
   * Modernize symbols file. (Closes: #887049)
