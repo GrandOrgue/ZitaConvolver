@@ -11,6 +11,7 @@ zita-convolver (4.0.3-1) UNRELEASED; urgency=medium
 
   [ Dennis Braun ]
   * New upstream version 4.0.3
+    + Fixes cross build (Closes: #873161)
   * d/control:
     + Bump dh-compat to 12
     + Bump Standards-Version to 4.5.0
@@ -24,7 +25,7 @@ zita-convolver (4.0.3-1) UNRELEASED; urgency=medium
     + Add more exports to make the build work
     + Replace libs/ with source/
 
- -- Dennis Braun <d_braun@kabelmail.de>  Sun, 02 Feb 2020 23:57:57 +0100
+ -- Dennis Braun <d_braun@kabelmail.de>  Mon, 03 Feb 2020 22:55:55 +0100
 
 zita-convolver (3.1.0-7) unstable; urgency=medium
 
