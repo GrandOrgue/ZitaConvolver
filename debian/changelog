@@ -1,4 +1,4 @@
-zita-convolver (4.0.3-1) UNRELEASED; urgency=medium
+zita-convolver (4.0.3-1) experimental; urgency=medium
 
   * Team upload
 
@@ -25,7 +25,7 @@ zita-convolver (4.0.3-1) UNRELEASED; urgency=medium
     + Add more exports to make the build work
     + Replace libs/ with source/
 
- -- Dennis Braun <d_braun@kabelmail.de>  Mon, 03 Feb 2020 22:55:55 +0100
+ -- Dennis Braun <d_braun@kabelmail.de>  Thu, 06 Feb 2020 20:18:35 +0100
 
 zita-convolver (3.1.0-7) unstable; urgency=medium
 
