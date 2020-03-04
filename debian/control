@@ -4,7 +4,8 @@ Priority: optional
 Maintainer: Debian Multimedia Maintainers <debian-multimedia@lists.debian.org>
 Uploaders:
  Free Ekanayaka <freee@debian.org>,
- Jaromír Mikeš <mira.mikes@seznam.cz>
+ Jaromír Mikeš <mira.mikes@seznam.cz>,
+ Dennis Braun <d_braun@kabelmail.de>
 Build-Depends:
  debhelper-compat (= 12),
  libfftw3-dev,
