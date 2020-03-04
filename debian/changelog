@@ -1,3 +1,11 @@
+zita-convolver (4.0.3-2) unstable; urgency=medium
+
+  * Upload to unstable
+  * Remove unnecessary dh argument -Smakefile
+  * Add me as uploader
+
+ -- Dennis Braun <d_braun@kabelmail.de>  Wed, 04 Mar 2020 14:39:36 +0100
+
 zita-convolver (4.0.3-1) experimental; urgency=medium
 
   * Team upload
