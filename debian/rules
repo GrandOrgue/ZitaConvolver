@@ -10,7 +10,7 @@ export DESTDIR=$(CURDIR)/debian/tmp
 DEB_HOST_MULTIARCH ?= $(shell dpkg-architecture -qDEB_HOST_MULTIARCH)
 
 %:
-	dh $@ -Smakefile -Dsource
+	dh $@ -Dsource
 
 override_dh_installchangelogs:
 	dh_installchangelogs README
