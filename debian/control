@@ -7,7 +7,7 @@ Uploaders:
  Jaromír Mikeš <mira.mikes@seznam.cz>,
  Dennis Braun <d_braun@kabelmail.de>
 Build-Depends:
- debhelper-compat (= 12),
+ debhelper-compat (= 13),
  libfftw3-dev,
 Standards-Version: 4.5.0
 Vcs-Git: https://salsa.debian.org/multimedia-team/zita-convolver.git
