@@ -25,8 +25,9 @@
 #include <pthread.h>
 #include <stdint.h>
 #include <fftw3.h>
-
-
+#include <mutex>
+#include <condition_variable>
+ 
 #define ZITA_CONVOLVER_MAJOR_VERSION 4
 #define ZITA_CONVOLVER_MINOR_VERSION 0
 
@@ -42,44 +43,6 @@ extern int zita_convolver_minor_version (void);
 #undef ZCSEMA_IS_IMPLEMENTED
 #endif
 
-
-#if defined(__linux__)  || defined(__GNU__) || defined(__FreeBSD__) || defined(__FreeBSD_kernel__)
-
-#include <semaphore.h>
-
-class ZCsema
-{
-public:
-
-    ZCsema (void) { init (0, 0); }
-    ~ZCsema (void) { sem_destroy (&_sema); }
-
-    ZCsema (const ZCsema&); // disabled
-    ZCsema& operator= (const ZCsema&); // disabled
-
-    int init (int s, int v) { return sem_init (&_sema, s, v); }
-    int post (void) { return sem_post (&_sema); }
-    int wait (void) { return sem_wait (&_sema); }
-    int trywait (void) { return sem_trywait (&_sema); }
-
-private:
-
-    sem_t  _sema;
-};
-
-#define ZCSEMA_IS_IMPLEMENTED
-#endif
-
-
-#ifdef __APPLE__
-
-// NOTE:  ***** I DO NOT REPEAT NOT PROVIDE SUPPORT FOR OSX *****
-// 
-// The following code partially emulates the POSIX sem_t for which
-// OSX has only a crippled implementation. It may or may not compile,
-// and if it compiles it may or may not work correctly. Blame APPLE
-// for not following POSIX standards.
-
 class ZCsema
 {
 public:
@@ -89,61 +52,58 @@ public:
         init (0, 0);
     }
 
-    ~ZCsema (void)
-    {
-        pthread_mutex_destroy (&_mutex);
-        pthread_cond_destroy (&_cond);
-    }
+    ~ZCsema (void) {}
 
     ZCsema (const ZCsema&); // disabled
     ZCsema& operator= (const ZCsema&); // disabled
 
     int init (int s, int v)
     {
+	std::unique_lock<std::mutex> lk(_mutex);
+
 	_count = v;
-        return pthread_mutex_init (&_mutex, 0) || pthread_cond_init (&_cond, 0);
+	return 0;
     }
 
     int post (void)
     {
-	pthread_mutex_lock (&_mutex);
+	std::unique_lock<std::mutex> lk(_mutex);
+
 	_count++;
-	if (_count == 1) pthread_cond_signal (&_cond);
-	pthread_mutex_unlock (&_mutex);
+	if (_count == 1) _cond.notify_one();
 	return 0;
     }
 
     int wait (void)
     {
-	pthread_mutex_lock (&_mutex);
-	while (_count < 1) pthread_cond_wait (&_cond, &_mutex);
+	std::unique_lock<std::mutex> lk(_mutex);
+
+	while (_count < 1)  _cond.wait(lk);
 	_count--;
-	pthread_mutex_unlock (&_mutex);
 	return 0;
     }
 
     int trywait (void)
     {
-	if (pthread_mutex_trylock (&_mutex)) return -1;
+	if (! _mutex.try_lock()) return -1;
 	if (_count < 1)
 	{
-	    pthread_mutex_unlock (&_mutex);
+	    _mutex.unlock();
 	    return -1;
 	}
         _count--;
-        pthread_mutex_unlock (&_mutex);
+	_mutex.unlock();
         return 0;
     }
 
 private:
 
     int              _count;
-    pthread_mutex_t  _mutex;
-    pthread_cond_t   _cond;
+    std::mutex       _mutex;
+    std::condition_variable _cond;
 };
 
 #define ZCSEMA_IS_IMPLEMENTED
-#endif
 
 
 #ifndef ZCSEMA_IS_IMPLEMENTED
@@ -245,6 +205,10 @@ private:
         ST_TERM,
         ST_PROC
     };
+
+    static unsigned s_IdCounter;
+
+    unsigned id;
 
     Convlevel (void);
     ~Convlevel (void);
