@@ -43,7 +43,7 @@ extern int zita_convolver_minor_version (void);
 #endif
 
 
-#if defined(__linux__)  || defined(__GNU__) || defined(__FreeBSD__) || defined(__FreeBSD_kernel__)
+#if defined(__linux__)  || defined(__GNU__) || defined(__FreeBSD__) || defined(__FreeBSD_kernel__) || defined(__MINGW32__)
 
 #include <semaphore.h>
 
