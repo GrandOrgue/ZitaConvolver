@@ -22,6 +22,7 @@
 #define _ZITA_CONVOLVER_H
 
 
+#include <atomic>
 #include <pthread.h>
 #include <stdint.h>
 #include <fftw3.h>
@@ -261,7 +262,7 @@ private:
     Macnode *findmacnode (uint32_t inp, uint32_t out, bool create);
 
 
-    volatile uint32_t   _stat;           // current processing state
+    std::atomic<uint32_t> _stat;         // current processing state
     int                 _prio;           // relative priority
     uint32_t            _offs;           // offset from start of impulse response
     uint32_t            _npar;           // number of partitions

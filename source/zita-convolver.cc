@@ -621,6 +621,7 @@ void Convlevel::start (int abspri, int policy)
     pthread_attr_setscope (&attr, PTHREAD_SCOPE_SYSTEM);
     pthread_attr_setinheritsched (&attr, PTHREAD_EXPLICIT_SCHED);
     pthread_attr_setstacksize (&attr, 0x10000);
+    _stat = ST_PROC;
     pthread_create (&_pthr, &attr, static_main, this);
     pthread_attr_destroy (&attr);
 }
@@ -689,7 +690,6 @@ void *Convlevel::static_main (void *arg)
 
 void Convlevel::main (void)
 {
-    _stat = ST_PROC;
     while (true)
     {
 	_trig.wait ();
