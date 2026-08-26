@@ -22,6 +22,7 @@
 #define _ZITA_CONVOLVER_H
 
 
+#include <atomic>
 #include <pthread.h>
 #include <stdint.h>
 #include <fftw3.h>
@@ -261,7 +262,7 @@ private:
     Macnode *findmacnode (uint32_t inp, uint32_t out, bool create);
 
 
-    volatile uint32_t   _stat;           // current processing state
+    std::atomic<uint32_t> _stat;         // current processing state
     int                 _prio;           // relative priority
     uint32_t            _offs;           // offset from start of impulse response
     uint32_t            _npar;           // number of partitions
@@ -275,7 +276,7 @@ private:
     uint32_t            _opind;          // rotating output buffer index
     int                 _bits;           // bit identifiying this level
     int                 _wait;           // number of unfinished cycles
-    pthread_t           _pthr;           // posix thread executing this level
+    std::atomic<pthread_t> _pthr;        // posix thread executing this level
     ZCsema              _trig;           // sema used to trigger a cycle
     ZCsema              _done;           // sema used to wait for a cycle
     Inpnode            *_inp_list;       // linked list of active inputs
