@@ -606,6 +606,7 @@ void Convlevel::start (int abspri, int policy)
     int                min, max;
     pthread_attr_t     attr;
     struct sched_param parm;
+    pthread_t          tid;
 
     _pthr = 0;
     min = sched_get_priority_min (policy);
@@ -622,7 +623,17 @@ void Convlevel::start (int abspri, int policy)
     pthread_attr_setinheritsched (&attr, PTHREAD_EXPLICIT_SCHED);
     pthread_attr_setstacksize (&attr, 0x10000);
     _stat = ST_PROC;
-    pthread_create (&_pthr, &attr, static_main, this);
+    if (pthread_create (&tid, &attr, static_main, this))
+    {
+        // No worker thread: fall back to in-line processing in readout(),
+        // and let stop()/check_stop() see an already-idle level.
+        _stat = ST_IDLE;
+        _pthr = 0;
+    }
+    else
+    {
+        _pthr = tid;
+    }
     pthread_attr_destroy (&attr);
 }
 
