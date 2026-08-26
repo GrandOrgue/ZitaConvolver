@@ -415,7 +415,6 @@ Convlevel::Convlevel (void) :
     _npar (0),
     _parsize (0),
     _options (0),
-    _pthr (0),
     _inp_list (0),
     _out_list (0),
     _plan_r2c (0),
@@ -606,9 +605,10 @@ void Convlevel::start (int abspri, int policy)
     int                min, max;
     pthread_attr_t     attr;
     struct sched_param parm;
+    // Only a destination for pthread_create(): the thread is detached and
+    // its id is never used, so it is not kept in the level.
     pthread_t          tid;
 
-    _pthr = 0;
     min = sched_get_priority_min (policy);
     max = sched_get_priority_max (policy);
     abspri += _prio;
@@ -625,14 +625,19 @@ void Convlevel::start (int abspri, int policy)
     _stat = ST_PROC;
     if (pthread_create (&tid, &attr, static_main, this))
     {
-        // No worker thread: fall back to in-line processing in readout(),
-        // and let stop()/check_stop() see an already-idle level.
+        // No worker thread, so the level must not be left in ST_PROC:
+        // stop() would post ST_TERM to a thread that does not exist and
+        // check_stop() would then poll forever - the very hang this fix is
+        // about, reached through a failed pthread_create() instead of a
+        // start/stop race. Marking the level idle again restores what this
+        // code did before the fix: readout() processes the level in line,
+        // which keeps the convolver alive and terminable. Note that this
+        // fallback is a degraded mode, not an equivalent one - for a level
+        // above the first, in-line processing does not reproduce the
+        // threaded result, so that level's contribution is wrong. That is
+        // pre-existing upstream behaviour on a failed pthread_create() and
+        // is not made better or worse here.
         _stat = ST_IDLE;
-        _pthr = 0;
-    }
-    else
-    {
-        _pthr = tid;
     }
     pthread_attr_destroy (&attr);
 }
@@ -707,7 +712,6 @@ void Convlevel::main (void)
 	if (_stat == ST_TERM)
 	{
             _stat = ST_IDLE;
-	    _pthr = 0;
             return;
         }
 	process (false);
